@@ -2,9 +2,7 @@ import dlt
 from pyspark.sql.functions import *
 from src.pipeline.transformations import standardize_schema,enrich_risk_level
 
-volume_path = spark.conf.get(
-    "my.project.volume_path"
-)
+volume_path = spark.conf.get("my.project.volume_path")
 
 
 ## The Bronze Layer(Ingestion Layer)

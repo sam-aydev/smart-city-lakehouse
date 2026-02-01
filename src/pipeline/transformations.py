@@ -13,4 +13,4 @@ def standardize_schema(df):
     
 
 def enrich_risk_level(df):
-    return df.withColumn("risk_score", (col("temperature") * 0.5) + (col("vibration") * 0.2)).withColumn("risk_category", when(col("risk_score") > 50 , lit("HIGH")).when(col("risk_score") > 20, lit("MEDIUM")).otherwise(lit("LOW")))
+    return df.withColumn("risk_score", (col("temperature") * 0.5) + (col("vibration") * 2.0)).withColumn("risk_category", when(col("risk_score") > 50 , lit("HIGH")).when(col("risk_score") > 20, lit("MEDIUM")).otherwise(lit("LOW")))
