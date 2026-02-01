@@ -1,7 +1,9 @@
-import pytest 
+import pytest  
 from pyspark.sql import SparkSession
 from src.pipeline.transformations import standardize_schema, enrich_risk_level
 
+
+## Unit testing
 @pytest.fixture(scope="session")
 def spark():
     return SparkSession.builder.master("local[1]").appName("Test").getOrCreate()
