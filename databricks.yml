@@ -28,6 +28,9 @@ targets:
       service_principal_name: ${var.service_principal_id}
     workspace:
       root_path: /Shared/.bundle/prod/${bundle.name}
+    permissions:
+      - level: CAN_MANAGE
+        group_name: users
 
 
 resources:
