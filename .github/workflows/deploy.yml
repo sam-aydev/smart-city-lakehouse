@@ -17,6 +17,8 @@ jobs:
       - name: Install Dependencies
         run: pip install pytest pyspark delta-spark
       - name: Run Unit Tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         run: pytest tests/
 
   deploy:
