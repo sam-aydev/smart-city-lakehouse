@@ -7,8 +7,6 @@ include:
 
 
 variables:
-  workspace_host:
-    description: "The URL of the Databricks Workspace"
   catalog_name:
     description: "The Unity Catalog name"
   schema_name:
@@ -26,8 +24,6 @@ targets:
 
   prod:
     mode: production     
-    workspace:
-      host: ${var.workspace_host}
     run_as:
       service_principal_name: ${var.service_principal_id}
 

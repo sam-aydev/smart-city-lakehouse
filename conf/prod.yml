@@ -1,7 +1,6 @@
 targets:
   prod:
     variables:
-      workspace_host: "https://dbc-2407f8fc-5cf5.cloud.databricks.com"
       catalog_name: "smart_city_prod"
       volume_path: "/Volumes/smart_city_prod/transportation/raw"
       schema_name: "transportation"
