@@ -1,0 +1,56 @@
+bundle:
+  name: smart-city-lakehouse
+
+
+include:
+  - conf/*.yml
+
+
+variables:
+  workspace_host:
+    description: "The URL of the Databricks Workspace"
+  catalog_name:
+    description: "The Unity Catalog name"
+  schema_name:
+    description: "The Schema (Database) name"
+  volume_path:
+    description: "Path to the S3 volume"
+  service_principal_id:
+    description: "Service Principal UUID for Prod"
+
+targets:
+  dev:
+    mode: development    
+    default: true        
+
+
+  prod:
+    mode: production     
+    workspace:
+      host: ${var.workspace_host}
+    run_as:
+      service_principal_name: ${var.service_principal_id}
+
+
+resources:
+  pipelines:
+    smart_city_pipeline:
+      name: smart_city_pipeline_${bundle.target} 
+      
+    
+      catalog: ${var.catalog_name}
+      target:  ${var.schema_name}  
+      
+    
+      libraries:
+        - file:
+            path: ./src/pipeline/dlt_proj_pipeline.py
+      
+   
+      serverless: true
+      
+     
+      configuration:
+        "spark.databricks.delta.preview.enabled": "true"
+        "my.project.volume_path": "${var.volume_path}"
+        "my.project.env": "${bundle.target}"
