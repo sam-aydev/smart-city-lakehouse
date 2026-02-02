@@ -5,7 +5,7 @@ import random
 import os
 from datetime import datetime
 
-OUTPUT_PATH="/Volumes/smart_city_dev/transportation/raw"
+OUTPUT_PATH="/Volumes/smart_city_prod/transportation/raw"
 
 
 def generate_iot_data():
