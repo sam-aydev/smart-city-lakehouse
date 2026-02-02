@@ -1,6 +1,21 @@
 import dlt
+import sys
+import os
+
+
 from pyspark.sql.functions import *
 from src.pipeline.transformations import standardize_schema,enrich_risk_level
+
+
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+
+project_root = os.path.dirname(os.path.dirname(current_dir))
+
+sys.path.append(project_root)
+
+
 
 volume_path = spark.conf.get("my.project.volume_path")
 
