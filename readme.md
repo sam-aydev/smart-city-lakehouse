@@ -4,15 +4,15 @@
 [![Databricks](https://img.shields.io/badge/Databricks-Serverless-orange)](https://databricks.com)
 [![Infrastructure](https://img.shields.io/badge/Infra-DABs-blue)](https://docs.databricks.com/dev-tools/bundles/index.html)
 
-A modern, production-grade Data Lakehouse built on **Databricks**, **Delta Live Tables (DLT)**, and **AWS**. This project simulates an IoT network for a Smart City, processing real-time telemetry from public transportation sensors to predict maintenance needs using AI.
+A modern, production-grade Data Lakehouse built on **Databricks**, **Declarative Pipelines (DLT)**, and **AWS**. This project simulates an IoT network for a Smart City, processing real-time telemetry from public transportation sensors to predict maintenance needs using AI.
 
 ## 🏗️ Architecture
-**Sensors (Python Simulator)** → **AWS S3 (Raw)** → **Databricks Auto Loader** → **Delta Live Tables (Bronze/Silver/Gold)** → **AI Analysis (DBRX)**
+**Sensors (Python Simulator)** → **AWS S3 (Raw)** → **Databricks Auto Loader** → **Decclarative Pipeline Table (Bronze/Silver/Gold)** → **AI Analysis (DBRX)**
 
 | Layer | Technology | Purpose |
 | :--- | :--- | :--- |
 | **Ingestion** | Databricks Auto Loader | Schema inference & evolution on streaming JSON data. |
-| **Processing** | Delta Live Tables (DLT) | ACID transactions, expectations (data quality), and lineage. |
+| **Processing** | Declarative Pipelines | ACID transactions, expectations (data quality), and lineage. |
 | **Compute** | Serverless | Instant startup and autoscaling without managing clusters. |
 | **Orchestration** | Databricks Asset Bundles (DABs) | CI/CD-driven deployment for Dev/Prod isolation. |
 | **Governance** | Unity Catalog | Row-level security and centralized access control. |
